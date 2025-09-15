@@ -2,20 +2,133 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Kratek — Coming Soon</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Kratek — Building next-gen web experiences</title>
+  <meta name="description" content="LA-based software studio crafting fast, reliable web apps.">
+  <meta property="og:title" content="Kratek — Building next-gen web experiences">
+  <meta property="og:description" content="LA-based software studio crafting fast, reliable web apps.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://kratek.dev/">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    :root{--radius:22px}
+    html,body{height:100%}
+    body{font-family:Inter,system-ui,Segoe UI,Roboto, Helvetica, Arial, Apple Color Emoji, Segoe UI Emoji}
+    /* soft animated gradient background */
+    .bg-aurora{
+      --c1:#0ea5e9; --c2:#8b5cf6; --c3:#22d3ee; --c4:#14b8a6;
+      background: radial-gradient(1200px 600px at 10% 10%, var(--c1)/18%, transparent 55%),
+                  radial-gradient(800px 500px at 90% 15%, var(--c2)/18%, transparent 55%),
+                  radial-gradient(900px 500px at 10% 90%, var(--c3)/16%, transparent 55%),
+                  radial-gradient(1200px 600px at 90% 85%, var(--c4)/16%, transparent 55%),
+                  #0b1020;
+      animation: float 18s linear infinite;
+    }
+    @keyframes float{
+      0%{background-position:0 0,100% 0,0 100%,100% 100%}
+      50%{background-position:10% 5%,90% 8%,5% 90%,92% 95%}
+      100%{background-position:0 0,100% 0,0 100%,100% 100%}
+    }
+    .glass{
+      backdrop-filter:saturate(140%) blur(14px);
+      background: linear-gradient(180deg, rgba(255,255,255,.12), rgba(255,255,255,.06));
+      border:1px solid rgba(255,255,255,.18);
+      border-radius: var(--radius);
+    }
+    .shadow-soft{box-shadow:0 10px 30px rgba(2,8,23,.35), inset 0 1px 0 rgba(255,255,255,.06)}
+  </style>
 </head>
-<body class="min-h-screen bg-slate-950 text-white flex items-center justify-center">
-  <main class="text-center p-8">
-    <h1 class="text-4xl md:text-6xl font-bold tracking-tight">Kratek</h1>
-    <p class="mt-4 text-slate-300">LA-based software studio. Landing soon.</p>
-    <div class="mt-8 flex gap-3 justify-center">
-      <a href="mailto:ian@kratek.dev" class="px-4 py-2 rounded-xl bg-white/10 hover:bg-white/20">Contact</a>
-      <a href="#" class="px-4 py-2 rounded-xl border border-white/20 hover:bg-white/10">Portfolio</a>
+<body class="bg-aurora text-white selection:bg-cyan-400/40 selection:text-white">
+  <!-- Nav -->
+  <header class="max-w-6xl mx-auto px-6 py-6 flex items-center justify-between">
+    <a href="/" class="flex items-center gap-3 group">
+      <!-- simple logo -->
+      <svg width="36" height="36" viewBox="0 0 48 48" class="p-2 rounded-xl bg-white/10 ring-1 ring-white/15 group-hover:bg-white/15 transition">
+        <defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#22d3ee"/><stop offset="1" stop-color="#8b5cf6"/></linearGradient></defs>
+        <rect x="6" y="6" width="36" height="36" rx="10" fill="url(#g)"/>
+        <path d="M16 30l8-12 8 12" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+      </svg>
+      <span class="text-lg font-extrabold tracking-tight">Kratek</span>
+    </a>
+    <nav class="hidden sm:flex items-center gap-6 text-sm text-white/80">
+      <a href="#work" class="hover:text-white">Work</a>
+      <a href="#about" class="hover:text-white">About</a>
+      <a href="mailto:ian@kratek.dev" class="hover:text-white">Contact</a>
+    </nav>
+  </header>
+
+  <!-- Hero -->
+  <section class="max-w-6xl mx-auto px-6 pt-8 pb-16 md:pt-16 md:pb-24">
+    <div class="glass shadow-soft p-8 md:p-14 text-center">
+      <p class="inline-flex items-center gap-2 text-xs tracking-wide uppercase text-white/70">
+        <span class="h-2 w-2 rounded-full bg-emerald-400 animate-pulse"></span> LA-based Software Studio
+      </p>
+      <h1 class="mt-4 text-4xl md:text-6xl font-extrabold leading-tight">
+        We craft snappy <span class="bg-gradient-to-r from-cyan-300 to-violet-300 bg-clip-text text-transparent">web & AI</span> products
+      </h1>
+      <p class="mt-5 text-white/80 md:text-lg">
+        Next.js • Nest.js • PostgreSQL • AWS — production-ready from day one.
+      </p>
+
+      <div class="mt-8 flex flex-col sm:flex-row items-center justify-center gap-3">
+        <a href="mailto:ian@kratek.dev" class="w-full sm:w-auto px-5 py-3 rounded-xl bg-white text-slate-900 font-semibold hover:opacity-90">
+          Contact us
+        </a>
+        <a href="#work" class="w-full sm:w-auto px-5 py-3 rounded-xl border border-white/25 hover:bg-white/10">
+          See our work
+        </a>
+      </div>
     </div>
-    <p class="mt-10 text-xs text-slate-500">© <span id="y"></span> Kratek.</p>
-  </main>
-  <script>document.getElementById('y').textContent=new Date().getFullYear()</script>
+  </section>
+
+  <!-- Features / Work -->
+  <section id="work" class="max-w-6xl mx-auto px-6 pb-20">
+    <div class="grid md:grid-cols-3 gap-5">
+      <article class="glass p-6">
+        <h3 class="font-bold text-lg">Full-stack Web</h3>
+        <p class="mt-2 text-white/80 text-sm">Next.js apps with clean APIs and rock-solid infra.</p>
+      </article>
+      <article class="glass p-6">
+        <h3 class="font-bold text-lg">Data & Storage</h3>
+        <p class="mt-2 text-white/80 text-sm">PostgreSQL, Prisma, Redis — reliable and scalable.</p>
+      </article>
+      <article class="glass p-6">
+        <h3 class="font-bold text-lg">Cloud & DevOps</h3>
+        <p class="mt-2 text-white/80 text-sm">AWS, Vercel, CI/CD. Secure by default, fast to ship.</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section id="about" class="max-w-4xl mx-auto px-6 pb-24">
+    <div class="glass p-8 md:p-10">
+      <h2 class="text-2xl md:text-3xl font-extrabold">Lean team, bold shipping.</h2>
+      <p class="mt-3 text-white/80">
+        Kratek builds pragmatic products with a bias for action. We prototype fast,
+        validate with users, and iterate until it feels right.
+      </p>
+      <div class="mt-6 flex flex-wrap gap-2 text-xs">
+        <span class="px-3 py-1 rounded-full bg-white/10">Next.js</span>
+        <span class="px-3 py-1 rounded-full bg-white/10">Nest.js</span>
+        <span class="px-3 py-1 rounded-full bg-white/10">PostgreSQL</span>
+        <span class="px-3 py-1 rounded-full bg-white/10">AWS</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="px-6 pb-10">
+    <div class="max-w-6xl mx-auto glass p-5 flex flex-col sm:flex-row items-center justify-between text-sm text-white/70">
+      <p>© <span id="y"></span> Kratek</p>
+      <div class="flex items-center gap-4">
+        <a href="mailto:ian@kratek.dev" class="hover:text-white">ian@kratek.dev</a>
+        <a href="/" class="hover:text-white">kratek.dev</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>document.getElementById('y').textContent = new Date().getFullYear()</script>
 </body>
 </html>
