@@ -1,53 +1,51 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="color-scheme" content="light dark">
-  <title>Kratek</title>
-  <!-- Tailwind CSS (CDN) -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="color-scheme" content="light dark" />
+  <title>Kratek — We turn your business into software</title>
+
+  <!-- Tailwind (CDN) -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
-    // Tailwind theme extend (brand colors)
+    // Tailwind brand tweaks
     tailwind.config = {
       theme: {
         extend: {
           colors: {
             brand: {
-              50:  '#eef8ff',
-              100: '#d9efff',
-              200: '#bde3ff',
-              300: '#90d0ff',
-              400: '#5bb7ff',
-              500: '#2a9dff',
-              600: '#0078e7',
-              700: '#005bb4',
-              800: '#004a91',
-              900: '#033a70',
+              50:'#eef8ff',100:'#d9efff',200:'#bde3ff',300:'#90d0ff',
+              400:'#5bb7ff',500:'#2a9dff',600:'#0078e7',700:'#005bb4',
+              800:'#004a91',900:'#033a70'
             }
           },
           boxShadow: {
-            soft: '0 10px 30px rgba(0,0,0,0.08)',
+            soft: '0 10px 30px rgba(0,0,0,0.08)'
           }
         }
       }
     }
   </script>
   <style>
-    /* 폰트 부드럽게 */
     html { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+    .card { backdrop-filter: blur(10px); }
   </style>
 </head>
 <body class="bg-white text-gray-900 dark:bg-gray-950 dark:text-gray-100">
-  <!-- 배경 그라데이션 -->
+  <!-- Background -->
   <div class="fixed inset-0 -z-10 bg-gradient-to-b from-brand-50 to-white dark:from-gray-950 dark:to-gray-900"></div>
+
+  <!-- Skip link -->
+  <a href="#main" class="sr-only focus:not-sr-only focus:absolute focus:m-4 focus:rounded-md focus:bg-black/80 focus:px-3 focus:py-2 focus:text-white">
+    Skip to content
+  </a>
 
   <!-- Header -->
   <header class="max-w-6xl mx-auto px-6 py-5 flex items-center justify-between">
     <div class="flex items-center gap-3">
-      <!-- 로고 (미니멀 SVG) -->
-      <div class="h-10 w-10 rounded-xl bg-brand-600/90 text-white grid place-items-center shadow-soft">
-        <!-- wrench icon -->
+      <div class="h-10 w-10 rounded-xl bg-brand-600/90 text-white grid place-items-center shadow-soft" aria-hidden="true">
+        <!-- Minimal wrench logo -->
         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
             d="M14.7 6.3a4.5 4.5 0 01-6.36 6.36L3 18l3 3 5.34-5.34A4.5 4.5 0 1014.7 6.3z"/>
@@ -55,65 +53,124 @@
       </div>
       <span class="font-semibold tracking-tight text-lg">Kratek</span>
     </div>
-    <a href="mailto:info@kratek.dev" class="text-sm font-medium opacity-80 hover:opacity-100">Contact</a>
+    <nav class="hidden sm:flex items-center gap-6 text-sm">
+      <a href="#how" class="opacity-80 hover:opacity-100">How it works</a>
+      <a href="#features" class="opacity-80 hover:opacity-100">Features</a>
+      <a href="#contact" class="opacity-80 hover:opacity-100">Contact</a>
+    </nav>
   </header>
 
-  <!-- Hero -->
-  <main class="max-w-6xl mx-auto px-6 pb-24">
+  <main id="main" class="max-w-6xl mx-auto px-6 pb-24">
+    <!-- Hero -->
     <section class="pt-14 md:pt-24">
-      <div class="relative rounded-2xl shadow-soft bg-white/70 dark:bg-gray-900/60 backdrop-blur border border-black/5 dark:border-white/5 p-10 md:p-14 overflow-hidden">
-        <!-- 장식용 그라데이션 블롭 -->
+      <div class="relative card rounded-2xl shadow-soft bg-white/70 dark:bg-gray-900/60 border border-black/5 dark:border-white/5 p-10 md:p-14 overflow-hidden">
         <div class="absolute -top-24 -right-24 h-72 w-72 rounded-full bg-brand-400/30 blur-3xl" aria-hidden="true"></div>
 
         <h1 class="text-4xl md:text-5xl font-extrabold tracking-tight leading-tight">
-          Building practical software for
-          <span class="text-brand-700 dark:text-brand-300"> real projects</span>
+          We turn your business into software.
         </h1>
         <p class="mt-4 text-base md:text-lg text-gray-600 dark:text-gray-300 max-w-2xl">
-          Minimal, fast, and clear. A lightweight landing you can ship on GitHub Pages.
+          We capture your workflows and automate the busywork—so you
+          <strong class="font-semibold text-gray-800 dark:text-gray-100">save time</strong>
+          and <strong class="font-semibold text-gray-800 dark:text-gray-100">maximize efficiency</strong>.
         </p>
 
         <div class="mt-8 flex flex-wrap items-center gap-3">
-          <a href="mailto:info@kratek.dev"
+          <a href="mailto:info@kratek.dev?subject=Kratek%20Intro%20Call&body=Hi%20Kratek%2C%20I%E2%80%99d%20like%20to%20learn%20more."
              class="inline-flex items-center gap-2 rounded-xl px-5 py-3 bg-brand-700 text-white font-semibold shadow-soft hover:-translate-y-0.5 active:translate-y-0 transition">
-            Contact Us
+            Get a 15-min intro
             <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
             </svg>
           </a>
-          <a href="#features"
+          <a href="#how"
              class="inline-flex items-center gap-2 rounded-xl px-5 py-3 border border-black/10 dark:border-white/10 font-semibold hover:bg-black/5 dark:hover:bg-white/5 transition">
-            Learn More
+            See how it works
           </a>
         </div>
+
+        <!-- Mini proof strip -->
+        <ul class="mt-8 flex flex-wrap gap-x-6 gap-y-2 text-sm text-gray-500 dark:text-gray-400">
+          <li>⏱️ Reclaim hours each week</li>
+          <li>🛠️ Built around your actual process</li>
+          <li>⚡ MVP in weeks, not months</li>
+        </ul>
       </div>
     </section>
 
     <!-- Features -->
     <section id="features" class="mt-16 grid md:grid-cols-3 gap-6">
-      <article class="rounded-2xl shadow-soft bg-white/70 dark:bg-gray-900/60 backdrop-blur border border-black/5 dark:border-white/5 p-6">
-        <h3 class="text-lg font-semibold mb-2">Construction × Tech</h3>
-        <p class="text-sm leading-6 text-gray-600 dark:text-gray-300">Field experience + software craftsmanship to ship useful tools fast.</p>
+      <article class="card rounded-2xl shadow-soft bg-white/70 dark:bg-gray-900/60 border border-black/5 dark:border-white/5 p-6">
+        <h3 class="text-lg font-semibold mb-2">Automate Workflows</h3>
+        <p class="text-sm leading-6 text-gray-600 dark:text-gray-300">
+          Turn repetitive steps into one-click actions and cut handoffs.
+        </p>
       </article>
-      <article class="rounded-2xl shadow-soft bg-white/70 dark:bg-gray-900/60 backdrop-blur border border-black/5 dark:border-white/5 p-6">
-        <h3 class="text-lg font-semibold mb-2">Lean & Serverless</h3>
-        <p class="text-sm leading-6 text-gray-600 dark:text-gray-300">Modern stack with pragmatic patterns and cost-aware ops.</p>
+      <article class="card rounded-2xl shadow-soft bg-white/70 dark:bg-gray-900/60 border border-black/5 dark:border-white/5 p-6">
+        <h3 class="text-lg font-semibold mb-2">Real-World Fit</h3>
+        <p class="text-sm leading-6 text-gray-600 dark:text-gray-300">
+          We map your current workflow and productize it—no generic templates.
+        </p>
       </article>
-      <article class="rounded-2xl shadow-soft bg-white/70 dark:bg-gray-900/60 backdrop-blur border border-black/5 dark:border-white/5 p-6">
-        <h3 class="text-lg font-semibold mb-2">Owner-First</h3>
-        <p class="text-sm leading-6 text-gray-600 dark:text-gray-300">Workflows around permits, inspections, bids, and contracts.</p>
+      <article class="card rounded-2xl shadow-soft bg-white/70 dark:bg-gray-900/60 border border-black/5 dark:border-white/5 p-6">
+        <h3 class="text-lg font-semibold mb-2">Time Back, Every Week</h3>
+        <p class="text-sm leading-6 text-gray-600 dark:text-gray-300">
+          Less admin, faster decisions, more focus on the work that moves the needle.
+        </p>
       </article>
     </section>
 
+    <!-- How it works -->
+    <section id="how" class="mt-16">
+      <div class="card rounded-2xl shadow-soft bg-white/70 dark:bg-gray-900/60 border border-black/5 dark:border-white/5 p-8 md:p-10">
+        <h2 class="text-2xl font-bold">How it works</h2>
+        <ol class="mt-6 grid md:grid-cols-3 gap-6">
+          <li class="p-5 rounded-xl border border-black/5 dark:border-white/10">
+            <div class="text-sm font-semibold text-brand-700 dark:text-brand-300">1 · Map</div>
+            <div class="mt-1 text-sm text-gray-600 dark:text-gray-300">
+              We interview your team and outline the exact steps of your current process.
+            </div>
+          </li>
+          <li class="p-5 rounded-xl border border-black/5 dark:border-white/10">
+            <div class="text-sm font-semibold text-brand-700 dark:text-brand-300">2 · Productize</div>
+            <div class="mt-1 text-sm text-gray-600 dark:text-gray-300">
+              We turn the workflow into a clean, reliable tool with clear roles and permissions.
+            </div>
+          </li>
+          <li class="p-5 rounded-xl border border-black/5 dark:border-white/10">
+            <div class="text-sm font-semibold text-brand-700 dark:text-brand-300">3 · Launch</div>
+            <div class="mt-1 text-sm text-gray-600 dark:text-gray-300">
+              Ship an MVP in weeks, iterate with real usage, and keep compounding time saved.
+            </div>
+          </li>
+        </ol>
+        <div class="mt-6">
+          <a href="mailto:info@kratek.dev?subject=Kratek%20Discovery%20Call"
+             class="inline-flex items-center gap-2 rounded-xl px-5 py-3 bg-brand-700 text-white font-semibold shadow-soft hover:-translate-y-0.5 transition">
+            Book a discovery call
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="mt-16 text-sm text-gray-500 dark:text-gray-400">
+      <div class="flex items-center gap-3">
+        <span>Prefer email?</span>
+        <a class="underline underline-offset-4" href="mailto:info@kratek.dev">info@kratek.dev</a>
+      </div>
+    </section>
+
     <!-- Footer -->
-    <div class="mt-12 flex items-center gap-3 text-sm text-gray-500 dark:text-gray-400">
+    <footer class="mt-12 flex items-center gap-3 text-sm text-gray-500 dark:text-gray-400">
       <span>© <span id="year"></span> Kratek LLC</span>
       <span>•</span>
-      <a href="mailto:info@kratek.dev" class="underline underline-offset-4">info@kratek.dev</a>
-    </div>
+      <a class="underline underline-offset-4" href="mailto:info@kratek.dev">Contact</a>
+    </footer>
   </main>
 
-  <script>document.getElementById('year').textContent = new Date().getFullYear()</script>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
