@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Kratek — Coming Soon</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="min-h-screen bg-slate-950 text-white flex items-center justify-center">
+  <main class="text-center p-8">
+    <h1 class="text-4xl md:text-6xl font-bold tracking-tight">Kratek</h1>
+    <p class="mt-4 text-slate-300">LA-based software studio. Landing soon.</p>
+    <div class="mt-8 flex gap-3 justify-center">
+      <a href="mailto:ian@kratek.dev" class="px-4 py-2 rounded-xl bg-white/10 hover:bg-white/20">Contact</a>
+      <a href="#" class="px-4 py-2 rounded-xl border border-white/20 hover:bg-white/10">Portfolio</a>
+    </div>
+    <p class="mt-10 text-xs text-slate-500">© <span id="y"></span> Kratek.</p>
+  </main>
+  <script>document.getElementById('y').textContent=new Date().getFullYear()</script>
+</body>
+</html>
